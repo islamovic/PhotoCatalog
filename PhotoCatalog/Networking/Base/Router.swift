@@ -15,14 +15,14 @@ enum HTTPMethod: String {
 
 protocol Router {
     func buildRequest(
-        with path: String,
-        parameters: [String: Any],
+        with path: String?,
+        parameters: [String: Any]?,
         method: HTTPMethod,
         headers: [String: String]?) -> URLRequest
 }
 
 extension Router {
-    var baseURL: URL? {
-        return URL(string: Constants.Server.baseUrl)
+    var baseURL: String? {
+        return Constants.Server.baseUrl
     }
 }

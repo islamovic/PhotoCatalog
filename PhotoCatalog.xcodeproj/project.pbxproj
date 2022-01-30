@@ -22,6 +22,8 @@
 		A6991FE427A6C30A00FA99CC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FE327A6C30A00FA99CC /* Router.swift */; };
 		A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FE527A6C3BB00FA99CC /* NetworkManager.swift */; };
 		A6991FE827A70FB800FA99CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FE727A70FB800FA99CC /* Constants.swift */; };
+		A6991FEC27A712E800FA99CC /* CatalogList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FEB27A712E800FA99CC /* CatalogList.swift */; };
+		A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FED27A7149500FA99CC /* CatalogItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		A6991FE327A6C30A00FA99CC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A6991FE527A6C3BB00FA99CC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A6991FE727A70FB800FA99CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A6991FEB27A712E800FA99CC /* CatalogList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogList.swift; sourceTree = "<group>"; };
+		A6991FED27A7149500FA99CC /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 		A6991FE127A6C2EC00FA99CC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A6991FEA27A7128A00FA99CC /* Model */,
+				A6991FE927A7128500FA99CC /* API */,
 				A6991FE227A6C2F200FA99CC /* Base */,
 			);
 			path = Networking;
@@ -140,6 +146,22 @@
 				A6991FE727A70FB800FA99CC /* Constants.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		A6991FE927A7128500FA99CC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A6991FEB27A712E800FA99CC /* CatalogList.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A6991FEA27A7128A00FA99CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6991FED27A7149500FA99CC /* CatalogItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6991FD527A6B22B00FA99CC /* CatalogListViewController.swift in Sources */,
+				A6991FEC27A712E800FA99CC /* CatalogList.swift in Sources */,
 				A6991FE827A70FB800FA99CC /* Constants.swift in Sources */,
 				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
@@ -224,6 +247,7 @@
 				A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */,
 				A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */,
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
+				A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */,
 				A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@ enum NetworkError: Error {
 }
 
 protocol NetworkClient {
-    func request<T: Decodable>(request: URLRequest, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func request<T: Decodable>(request: URLRequest, completion: @escaping (Result<[T], NetworkError>) -> Void)
 }
 
 class NetworkManager: NetworkClient {
@@ -22,9 +22,9 @@ class NetworkManager: NetworkClient {
     private var session: URLSession
     private var decoder: JSONDecoder
 
-    init(session: URLSession = .shared, decoder: JSONDecoder) {
+    init(session: URLSession = .shared) {
         self.session = session
-        self.decoder = decoder
+        self.decoder = JSONDecoder()
     }
 
     func request<T: Decodable>(request: URLRequest,
@@ -40,7 +40,7 @@ class NetworkManager: NetworkClient {
             guard let safeData = data,
                   let response = try? self.decoder.decode(T.self, from: safeData) else {
                       if data != nil {
-                          completion(.failure(.decoding))
+                          completion(.failure(.invalidData))
                           return
                       }
                       completion(.failure(.decoding))

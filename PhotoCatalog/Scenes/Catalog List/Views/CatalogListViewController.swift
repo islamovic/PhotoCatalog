@@ -18,6 +18,13 @@ class CatalogListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let catalofListRouter = CatalogListRouter()
+        let networkManager = NetworkManager()
+        let catalogEndPoint = CatalogList(catalogRouter: catalofListRouter, networkManager: networkManager)
+        catalogEndPoint.fetch { result in
+
+        }
     }
 }
 
