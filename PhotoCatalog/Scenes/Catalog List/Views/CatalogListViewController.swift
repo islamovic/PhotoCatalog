@@ -7,9 +7,20 @@
 
 import UIKit
 
+protocol CatalogListSceneDisplayView: AnyObject {
+
+}
+
 class CatalogListViewController: UIViewController {
+
+    var interactor: CatalogListSceneInteractor!
+    var dataStore: CatalogListSceneDataStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+}
+
+extension CatalogListViewController: CatalogListSceneDisplayView {
+    
 }

@@ -13,7 +13,10 @@ class CatalogListSceneConfigurator: SceneConfigurator {
     func configure() -> UIViewController? {
 
         let viewController = CatalogListViewController()
-
+        let presenter = CatalogListScenePresenter(displayView: viewController)
+        let interactor = CatalogListSceneInteractor(presenter: presenter)
+        viewController.interactor = interactor
+        viewController.dataStore = interactor
         return viewController
     }
 }

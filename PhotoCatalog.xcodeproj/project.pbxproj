@@ -17,6 +17,8 @@
 		A6991FD627A6B22B00FA99CC /* CatalogListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6991FD427A6B22B00FA99CC /* CatalogListViewController.xib */; };
 		A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FD827A6B27600FA99CC /* CatalogListSceneConfigurator.swift */; };
 		A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FDB27A6B2B500FA99CC /* SceneConfigurator.swift */; };
+		A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FDD27A6B3A600FA99CC /* CatalogListSceneInteractor.swift */; };
+		A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FDF27A6B3B600FA99CC /* CatalogListScenePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		A6991FD427A6B22B00FA99CC /* CatalogListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogListViewController.xib; sourceTree = "<group>"; };
 		A6991FD827A6B27600FA99CC /* CatalogListSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneConfigurator.swift; sourceTree = "<group>"; };
 		A6991FDB27A6B2B500FA99CC /* SceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneConfigurator.swift; sourceTree = "<group>"; };
+		A6991FDD27A6B3A600FA99CC /* CatalogListSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneInteractor.swift; sourceTree = "<group>"; };
+		A6991FDF27A6B3B600FA99CC /* CatalogListScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListScenePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				A6991FD727A6B23D00FA99CC /* Views */,
 				A6991FD827A6B27600FA99CC /* CatalogListSceneConfigurator.swift */,
+				A6991FDD27A6B3A600FA99CC /* CatalogListSceneInteractor.swift */,
+				A6991FDF27A6B3B600FA99CC /* CatalogListScenePresenter.swift */,
 			);
 			path = "Catalog List";
 			sourceTree = "<group>";
@@ -187,8 +193,10 @@
 				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
 				A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */,
 				A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */,
+				A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */,
 				A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */,
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
+				A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
