@@ -27,6 +27,7 @@
 		A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */; };
 		A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */; };
 		A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */; };
+		A6D59A2D27A89BD900884F9A /* CatalogListWorngResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCatalogListWebServiceTests.swift; sourceTree = "<group>"; };
 		A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatalogListResponseMock.json; sourceTree = "<group>"; };
+		A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatalogListWorngResponseMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */,
+				A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */,
+				A6D59A2D27A89BD900884F9A /* CatalogListWorngResponseMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

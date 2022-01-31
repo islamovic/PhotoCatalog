@@ -8,14 +8,13 @@
 import Foundation
 
 enum NetworkError: Equatable, Error {
-    
+
+    case decoding
+    case failedRequest
+
     static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         return lhs.localizedDescription == rhs.localizedDescription
     }
-
-    case decoding
-    case invalidData
-    case networking(Error)
 }
 
 protocol NetworkClient {
@@ -37,20 +36,15 @@ class NetworkManager: NetworkClient {
 
         let dataTask = session.dataTask(with: request) { (data, response, error) in
 
-            if let error = error {
-                completion(.failure(.networking(error)))
+            if error != nil {
+                completion(.failure(.failedRequest))
                 return
             }
 
-            guard let safeData = data,
-                  let response = try? self.decoder.decode(T.self, from: safeData) else {
-                      if data != nil {
-                          completion(.failure(.invalidData))
-                          return
-                      }
-                      completion(.failure(.decoding))
-                      return
-                  }
+            guard let safeData = data, let response = try? self.decoder.decode(T.self, from: safeData) else {
+                completion(.failure(.decoding))
+                return
+            }
             completion(.success(response))
         }
 

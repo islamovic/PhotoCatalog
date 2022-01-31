@@ -29,12 +29,12 @@ class PhotosCatalogListWebServiceTests: XCTestCase {
         MockURLProtocol.error = nil
     }
 
-    func testCatalogListWebService_WhenGivenSucessfulResponse_ReturnSucceess() {
+    func testCatalogListWebService_WhenGivenSucessfullResponse_ReturnSucceess() {
 
         let mockModelData = loadCatalogListResponseMock("CatalogListResponseMock")
         MockURLProtocol.stubResponseData = try? JSONEncoder().encode(mockModelData)
 
-        let expectation = self.expectation(description: "Catalog Web Service Response Expectation")
+        let expectation = self.expectation(description: "Catalog Web Service Response success Expectation")
 
         sut.fetch { response in
 
@@ -49,12 +49,50 @@ class PhotosCatalogListWebServiceTests: XCTestCase {
 
         self.wait(for: [expectation], timeout: 5)
     }
+
+    func testCatalogListWebService_WhenGivenSuccessfullResponse_ReturnFailure() {
+
+        let mockModelData = loadCatalogListResponseMock("CatalogListWorngResponseMock")
+        MockURLProtocol.stubResponseData = try? JSONEncoder().encode(mockModelData)
+
+        let expectation = self.expectation(description: "Catalog web service Response wrong Expectation")
+
+        sut.fetch { response in
+
+            switch response {
+            case .success: break
+            case .failure(let error):
+                XCTAssertEqual(error, NetworkError.decoding)
+            }
+            expectation.fulfill()
+        }
+
+        self.wait(for: [expectation], timeout: 5)
+    }
+
+    func testCatalogListWebService_WhenURLRequestFail_ReturnError() {
+
+        let expectation = self.expectation(description: "A failed Request expeectation")
+        MockURLProtocol.error = NetworkError.failedRequest
+
+        sut.fetch { response in
+
+            switch response {
+            case .success: break
+            case .failure(let error):
+                XCTAssertEqual(error, NetworkError.failedRequest)
+            }
+            expectation.fulfill()
+        }
+
+        self.wait(for: [expectation], timeout: 2)
+    }
 }
 
 private extension PhotosCatalogListWebServiceTests {
     func loadCatalogListResponseMock(_ fileName: String) -> [CatalogItem]? {
 
-        guard let currentBundle = Bundle.allBundles.filter() { $0.bundlePath.hasSuffix(".xctest") }.first else {
+        guard let currentBundle = Bundle.allBundles.filter({ $0.bundlePath.hasSuffix(".xctest") }).first else {
             return nil
         }
         guard let url = currentBundle.url(forResource: fileName, withExtension: "json") else {
