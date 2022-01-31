@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CatalogItem: Decodable {
+struct CatalogItem: Codable {
     let identifier: String
     let text: String
     let confidence: Float

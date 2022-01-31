@@ -21,9 +21,9 @@ class CatalogListViewController: UIViewController {
 
         let catalofListRouter = CatalogListRouter()
         let networkManager = NetworkManager()
-        let catalogEndPoint = CatalogList(catalogRouter: catalofListRouter, networkManager: networkManager)
+        let catalogEndPoint = CatalogListWebService(catalogRouter: catalofListRouter, networkManager: networkManager)
         catalogEndPoint.fetch { result in
-
+            
         }
     }
 }

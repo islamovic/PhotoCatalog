@@ -36,7 +36,7 @@ struct CatalogListRouter: Router {
     }
 }
 
-class CatalogList {
+class CatalogListWebService {
 
     private let catalogRouter: CatalogListRouter
     private let networkManager: NetworkManager
@@ -55,9 +55,9 @@ class CatalogList {
 
             switch response {
             case .success(let catalogList):
-                print(catalogList)
-            case .failure(let failure):
-                print(failure)
+                completion(.success(catalogList))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
