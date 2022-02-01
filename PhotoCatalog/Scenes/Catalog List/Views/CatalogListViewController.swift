@@ -11,12 +11,15 @@ protocol CatalogListSceneDisplayView: AnyObject {
 
     func displayCatalogListSucess(indeces: [IndexPath])
     func displayCatalogListFailure(_ error: NetworkError)
+    func displayCatalogListAfterRefreshing()
 }
 
 class CatalogListViewController: UIViewController {
 
     private let numberOfColumns: Int = 2
     private let itemHeight: CGFloat = 200
+
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Outlets
     @IBOutlet private var collectionView: UICollectionView!
@@ -28,7 +31,14 @@ class CatalogListViewController: UIViewController {
         super.viewDidLoad()
 
         self.initializeUI()
-        self.interactor.fetchCatalogList()
+        self.initializeRefreshControl()
+
+        self.refreshControl.beginRefreshing()
+        self.interactor.fetchRecentCatalogList()
+    }
+
+    @objc func refresh(sender: UIRefreshControl) {
+        self.interactor.fetchRecentCatalogList()
     }
 }
 
@@ -44,6 +54,12 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
 
     func displayCatalogListFailure(_ error: NetworkError) {
 
+    }
+
+    func displayCatalogListAfterRefreshing() {
+        DispatchQueue.main.async { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -77,6 +93,13 @@ private extension CatalogListViewController {
         self.collectionView.delegate = self
         self.collectionView.register(PhotoCatalogCell.self)
         self.collectionView.collectionViewLayout = catalogPhotoListLayout
+    }
+
+    func initializeRefreshControl() {
+        self.refreshControl.tintColor = .black
+        self.refreshControl.addTarget(self, action: #selector(refresh) , for: .valueChanged)
+        collectionView.addSubview(self.refreshControl)
+        collectionView.alwaysBounceVertical = true
     }
 
     var catalogPhotoListLayout: UICollectionViewLayout {

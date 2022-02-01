@@ -25,7 +25,7 @@ extension UIImageView {
                 }
             case .failure:
                 DispatchQueue.main.async { [weak self] in
-                    self?.image = nil
+                    self?.image = placeholder
                 }
             }
         }

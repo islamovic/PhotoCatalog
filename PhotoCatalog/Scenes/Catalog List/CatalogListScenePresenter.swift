@@ -11,6 +11,7 @@ protocol CatalogListScenePresentaionLogic: AnyObject {
 
     func presentCatalogListSuccess(indeces: [IndexPath])
     func presentCatalogListFailure(_ error: NetworkError)
+    func presentCatalogListAfterRefreshing()
 }
 
 class CatalogListScenePresenter: CatalogListScenePresentaionLogic {
@@ -32,5 +33,9 @@ extension CatalogListScenePresenter {
 
     func presentCatalogListFailure(_ error: NetworkError) {
         self.displayView?.displayCatalogListFailure(error)
+    }
+
+    func presentCatalogListAfterRefreshing() {
+        self.displayView?.displayCatalogListAfterRefreshing()
     }
 }

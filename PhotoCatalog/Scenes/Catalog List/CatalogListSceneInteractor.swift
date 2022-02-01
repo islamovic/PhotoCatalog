@@ -12,6 +12,8 @@ protocol CatalogListSceneDataStore: AnyObject {
     var catalogList: [CatalogItem] { get set }
 
     var maxId: String? { get set }
+
+    var sinceId: String? { get set }
 }
 
 protocol CatalogListSceneBusinessLogic: AnyObject {
@@ -19,6 +21,8 @@ protocol CatalogListSceneBusinessLogic: AnyObject {
     func fetchCatalogList()
 
     func detectLoadingMore(index: Int)
+
+    func fetchRecentCatalogList()
 }
 
 class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListSceneDataStore {
@@ -32,6 +36,8 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
 
     var maxId: String? = nil
 
+    var sinceId: String? = nil
+
     // MARK: - Initializers
     required init(presenter: CatalogListScenePresentaionLogic) {
         self.presenter = presenter
@@ -43,21 +49,26 @@ extension CatalogListSceneInteractor {
 
     func fetchCatalogList() {
 
-        worker.fetchCatalogList(maxId: self.maxId) { [weak self] result in
+        worker.fetchCatalogList(maxId: self.maxId, sinceId: self.sinceId) { [weak self] result in
+
             switch result {
+
             case .success(let catalogList):
 
                 if catalogList.count != 0 {
-                    var indeces: [IndexPath] = []
-                    let start = self?.catalogList.count ?? 0
-                    let end = catalogList.count + start - 1
 
-                    for index in start..<end {
-                        indeces.append(IndexPath(row: index, section: 0))
+                    if self?.maxId != nil {
+                        let indeces = self?.updateOlderCatalogList(catalogList: catalogList) ?? []
+                        self?.presenter?.presentCatalogListSuccess(indeces: indeces)
+                        self?.catalogList.append(contentsOf: catalogList)
+                    } else {
+                        let indeces = self?.updateRecentCatalogList(catalogList: catalogList) ?? []
+                        self?.presenter?.presentCatalogListSuccess(indeces: indeces)
+                        self?.catalogList.insert(contentsOf: catalogList, at: 0)
                     }
-                    self?.catalogList.append(contentsOf: catalogList)
-                    self?.presenter?.presentCatalogListSuccess(indeces: indeces)
                 }
+
+                self?.presenter?.presentCatalogListAfterRefreshing()
             case .failure(let error):
                 self?.presenter?.presentCatalogListFailure(error)
             }
@@ -65,10 +76,42 @@ extension CatalogListSceneInteractor {
     }
 
     func detectLoadingMore(index: Int) {
+        self.sinceId = nil
         if index == self.catalogList.count - 1 {
             self.maxId = self.catalogList.last?.identifier
             self.fetchCatalogList()
         }
     }
 
+    func fetchRecentCatalogList() {
+        self.maxId = nil
+        self.sinceId = self.catalogList.first?.identifier
+        self.fetchCatalogList()
+    }
+}
+
+private extension CatalogListSceneInteractor {
+
+    func updateOlderCatalogList(catalogList: [CatalogItem]) -> [IndexPath] {
+        var indeces: [IndexPath] = []
+        let start = self.catalogList.count
+        let end = catalogList.count + start - 1
+
+        for index in start..<end {
+            indeces.append(IndexPath(row: index, section: 0))
+        }
+        return indeces
+    }
+
+    func updateRecentCatalogList(catalogList: [CatalogItem]) -> [IndexPath] {
+
+        var indeces: [IndexPath] = []
+        let start = 0
+        let end = catalogList.count + start - 1
+
+        for index in start..<end {
+            indeces.append(IndexPath(row: index, section: 0))
+        }
+        return indeces
+    }
 }

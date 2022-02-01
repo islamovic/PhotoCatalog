@@ -9,7 +9,9 @@ import Foundation
 
 class CatalogListWorker {
 
-    func fetchCatalogList(maxId: String? = nil, completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
+    func fetchCatalogList(maxId: String? = nil,
+                          sinceId: String? = nil,
+                          completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
 
         let networkManager = NetworkManager()
 
@@ -18,6 +20,9 @@ class CatalogListWorker {
         var params: [String: Any] = [:]
         if let maxId = maxId {
             params["max_id"] = maxId
+        }
+        if let sinceId = sinceId {
+            params["since_id"] = sinceId
         }
 
         let request = router.buildRequest(parameters: params)
