@@ -9,12 +9,18 @@ import Foundation
 
 class CatalogListWorker {
 
-    func fetchCatalogList(completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
+    func fetchCatalogList(maxId: String? = nil, completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
 
         let networkManager = NetworkManager()
 
         let router = CatalogListRouter()
-        let request = router.buildRequest()
+
+        var params: [String: Any] = [:]
+        if let maxId = maxId {
+            params["max_id"] = maxId
+        }
+
+        let request = router.buildRequest(parameters: params)
 
         networkManager.request(request: request) { result in
             completion(result)

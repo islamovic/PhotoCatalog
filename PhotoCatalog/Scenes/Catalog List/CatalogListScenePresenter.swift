@@ -9,7 +9,7 @@ import Foundation
 
 protocol CatalogListScenePresentaionLogic: AnyObject {
 
-    func presentCatalogListSuccess()
+    func presentCatalogListSuccess(indeces: [IndexPath])
     func presentCatalogListFailure(_ error: NetworkError)
 }
 
@@ -26,8 +26,8 @@ class CatalogListScenePresenter: CatalogListScenePresentaionLogic {
 
 extension CatalogListScenePresenter {
 
-    func presentCatalogListSuccess() {
-        self.displayView?.displayCatalogListSucess()
+    func presentCatalogListSuccess(indeces: [IndexPath]) {
+        self.displayView?.displayCatalogListSucess(indeces: indeces)
     }
 
     func presentCatalogListFailure(_ error: NetworkError) {

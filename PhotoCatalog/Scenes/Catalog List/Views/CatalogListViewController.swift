@@ -9,7 +9,7 @@ import UIKit
 
 protocol CatalogListSceneDisplayView: AnyObject {
 
-    func displayCatalogListSucess()
+    func displayCatalogListSucess(indeces: [IndexPath])
     func displayCatalogListFailure(_ error: NetworkError)
 }
 
@@ -34,9 +34,11 @@ class CatalogListViewController: UIViewController {
 
 extension CatalogListViewController: CatalogListSceneDisplayView {
 
-    func displayCatalogListSucess() {
+    func displayCatalogListSucess(indeces: [IndexPath]) {
         DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
+            self?.collectionView.performBatchUpdates({
+                self?.collectionView.insertItems(at: indeces)
+            }, completion: nil)
         }
     }
 
@@ -61,6 +63,10 @@ extension CatalogListViewController: UICollectionViewDataSource {
 
 extension CatalogListViewController: UICollectionViewDelegate {
 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        self.interactor.detectLoadingMore(index: indexPath.row)
+    }
 }
 
 private extension CatalogListViewController {
