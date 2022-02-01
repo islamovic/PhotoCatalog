@@ -24,10 +24,14 @@
 		A6991FE827A70FB800FA99CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FE727A70FB800FA99CC /* Constants.swift */; };
 		A6991FEC27A712E800FA99CC /* CatalogListWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FEB27A712E800FA99CC /* CatalogListWebService.swift */; };
 		A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FED27A7149500FA99CC /* CatalogItem.swift */; };
+		A6C4AD8427A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */; };
+		A6C4AD8627A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */; };
+		A6C4AD8A27A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */; };
 		A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */; };
 		A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */; };
 		A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */; };
 		A6D59A2D27A89BD900884F9A /* CatalogListWorngResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */; };
+		A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2E27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +64,15 @@
 		A6991FE727A70FB800FA99CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6991FEB27A712E800FA99CC /* CatalogListWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListWebService.swift; sourceTree = "<group>"; };
 		A6991FED27A7149500FA99CC /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
+		A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoCatalogWebServiceTests.swift; sourceTree = "<group>"; };
+		A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogResponseMock.json; sourceTree = "<group>"; };
+		A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogWrongResponseMock.json; sourceTree = "<group>"; };
 		A6D59A1727A753EE00884F9A /* PhotoCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCatalogListWebServiceTests.swift; sourceTree = "<group>"; };
 		A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatalogListResponseMock.json; sourceTree = "<group>"; };
 		A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatalogListWorngResponseMock.json; sourceTree = "<group>"; };
+		A6D59A2E27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoCatalogWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A6991FEB27A712E800FA99CC /* CatalogListWebService.swift */,
+				A6D59A2E27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */,
+				A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -223,6 +233,8 @@
 			children = (
 				A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */,
 				A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */,
+				A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */,
+				A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -319,8 +331,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C4AD8627A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json in Resources */,
 				A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */,
 				A6D59A2D27A89BD900884F9A /* CatalogListWorngResponseMock.json in Resources */,
+				A6C4AD8A27A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +350,7 @@
 				A6991FE827A70FB800FA99CC /* Constants.swift in Sources */,
 				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
+				A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */,
 				A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */,
 				A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */,
 				A6991FE427A6C30A00FA99CC /* Router.swift in Sources */,
@@ -351,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C4AD8427A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift in Sources */,
 				A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */,
 				A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */,
 			);
