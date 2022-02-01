@@ -17,8 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.windowScene = scene as? UIWindowScene
-        let catalogListViewController = CatalogListViewController()
-        let navigationController = UINavigationController(rootViewController: catalogListViewController)
+        let catalogListViewController = CatalogListSceneConfigurator()
+        let viewController = catalogListViewController.configure()
+        let navigationController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

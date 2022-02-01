@@ -9,6 +9,8 @@ import Foundation
 
 protocol CatalogListScenePresentaionLogic: AnyObject {
 
+    func presentCatalogListSuccess()
+    func presentCatalogListFailure(_ error: NetworkError)
 }
 
 class CatalogListScenePresenter: CatalogListScenePresentaionLogic {
@@ -19,5 +21,16 @@ class CatalogListScenePresenter: CatalogListScenePresentaionLogic {
     // MARK: - Initializers
     required init(displayView: CatalogListSceneDisplayView) {
         self.displayView = displayView
+    }
+}
+
+extension CatalogListScenePresenter {
+
+    func presentCatalogListSuccess() {
+        self.displayView?.displayCatalogListSucess()
+    }
+
+    func presentCatalogListFailure(_ error: NetworkError) {
+        self.displayView?.displayCatalogListFailure(error)
     }
 }

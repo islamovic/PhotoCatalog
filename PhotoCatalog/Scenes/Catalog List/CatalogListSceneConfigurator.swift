@@ -10,7 +10,7 @@ import UIKit
 
 class CatalogListSceneConfigurator: SceneConfigurator {
 
-    func configure() -> UIViewController? {
+    func configure() -> UIViewController {
 
         let viewController = CatalogListViewController()
         let presenter = CatalogListScenePresenter(displayView: viewController)
