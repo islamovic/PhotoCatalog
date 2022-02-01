@@ -27,6 +27,9 @@
 		A6C4AD8427A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */; };
 		A6C4AD8627A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */; };
 		A6C4AD8A27A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */; };
+		A6C4AD8E27A8B89000E14310 /* PhotoCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD8C27A8B89000E14310 /* PhotoCatalogCell.swift */; };
+		A6C4AD8F27A8B89000E14310 /* PhotoCatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8D27A8B89000E14310 /* PhotoCatalogCell.xib */; };
+		A6C4AD9327A8BAA700E14310 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */; };
 		A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */; };
 		A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */; };
 		A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */; };
@@ -67,6 +70,9 @@
 		A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePhotoCatalogWebServiceTests.swift; sourceTree = "<group>"; };
 		A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogResponseMock.json; sourceTree = "<group>"; };
 		A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogWrongResponseMock.json; sourceTree = "<group>"; };
+		A6C4AD8C27A8B89000E14310 /* PhotoCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCatalogCell.swift; sourceTree = "<group>"; };
+		A6C4AD8D27A8B89000E14310 /* PhotoCatalogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCatalogCell.xib; sourceTree = "<group>"; };
+		A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		A6D59A1727A753EE00884F9A /* PhotoCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCatalogListWebServiceTests.swift; sourceTree = "<group>"; };
 		A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		A6991FBC27A6AFCA00FA99CC /* PhotoCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				A6C4AD9027A8BA9100E14310 /* Utils */,
 				A6991FE127A6C2EC00FA99CC /* Networking */,
 				A6991FDA27A6B2A100FA99CC /* Core */,
 				A6991FD127A6B1FC00FA99CC /* Scenes */,
@@ -150,6 +157,7 @@
 		A6991FD727A6B23D00FA99CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6C4AD8B27A8B86800E14310 /* Cell */,
 				A6991FD327A6B22B00FA99CC /* CatalogListViewController.swift */,
 				A6991FD427A6B22B00FA99CC /* CatalogListViewController.xib */,
 			);
@@ -199,6 +207,31 @@
 				A6991FED27A7149500FA99CC /* CatalogItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6C4AD8B27A8B86800E14310 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A6C4AD8C27A8B89000E14310 /* PhotoCatalogCell.swift */,
+				A6C4AD8D27A8B89000E14310 /* PhotoCatalogCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		A6C4AD9027A8BA9100E14310 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6C4AD9127A8BA9B00E14310 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A6C4AD9127A8BA9B00E14310 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A6D59A1827A753EE00884F9A /* PhotoCatalogTests */ = {
@@ -324,6 +357,7 @@
 				A6991FCA27A6AFCD00FA99CC /* LaunchScreen.storyboard in Resources */,
 				A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */,
 				A6991FC527A6AFCA00FA99CC /* Main.storyboard in Resources */,
+				A6C4AD8F27A8B89000E14310 /* PhotoCatalogCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +383,7 @@
 				A6991FEC27A712E800FA99CC /* CatalogListWebService.swift in Sources */,
 				A6991FE827A70FB800FA99CC /* Constants.swift in Sources */,
 				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
+				A6C4AD8E27A8B89000E14310 /* PhotoCatalogCell.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
 				A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */,
 				A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */,
@@ -359,6 +394,7 @@
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
 				A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */,
 				A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */,
+				A6C4AD9327A8BAA700E14310 /* UITableView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,35 +13,49 @@ protocol CatalogListSceneDisplayView: AnyObject {
 
 class CatalogListViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet private var tableView: UITableView!
+    
     var interactor: CatalogListSceneInteractor!
     var dataStore: CatalogListSceneDataStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let catalofListRouter = CatalogListRouter()
-//        let networkManager = NetworkManager()
-//        let catalogEndPoint = CatalogListWebService(catalogRouter: catalofListRouter, networkManager: networkManager)
-//        catalogEndPoint.fetch { result in
-//
-//        }
-
-        let createPhotoCatalog = CreatePhotoCatalogRouter()
-        let networkManager = NetworkManager()
-        let createPhotoEndPoint = CreatePhotoCatalogWebService(createPhotoCatalog: createPhotoCatalog,
-                                                               networkManager: networkManager)
-        let params = [
-            "image": "https://via.placeholder.com/512x512?text=Hello+from+app!",
-            "text": "Hello from app",
-            "confidence": 0.8
-        ] as [String : Any]
-        
-        createPhotoEndPoint.createPhoto(parameters: params) { result in
-            print(result)
-        }
+        self.initializeUI()
     }
 }
 
 extension CatalogListViewController: CatalogListSceneDisplayView {
     
+}
+
+extension CatalogListViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: PhotoCatalogCell = tableView.dequeueReusableCell(indexPath: indexPath)
+        return cell
+    }
+}
+
+extension CatalogListViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+private extension CatalogListViewController {
+
+    func initializeUI() {
+
+        self.tableView.frame = .zero
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(PhotoCatalogCell.self)
+    }
 }
