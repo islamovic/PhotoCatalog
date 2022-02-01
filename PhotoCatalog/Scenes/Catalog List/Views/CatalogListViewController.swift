@@ -15,8 +15,11 @@ protocol CatalogListSceneDisplayView: AnyObject {
 
 class CatalogListViewController: UIViewController {
 
+    private let numberOfColumns: Int = 2
+    private let itemHeight: CGFloat = 200
+
     // MARK: - Outlets
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var collectionView: UICollectionView!
     
     var interactor: CatalogListSceneInteractor!
     var dataStore: CatalogListSceneDataStore!
@@ -33,7 +36,7 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
 
     func displayCatalogListSucess() {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
 
@@ -42,38 +45,48 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
     }
 }
 
-extension CatalogListViewController: UITableViewDataSource {
+extension CatalogListViewController: UICollectionViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.dataStore.catalogList.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PhotoCatalogCell = tableView.dequeueReusableCell(indexPath: indexPath)
-        let selectedCatalotItem = self.dataStore.catalogList[indexPath.row]
-        cell.configCell(photoCatalog: selectedCatalotItem)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: PhotoCatalogCell = collectionView.dequeueReusableCell(indexPath: indexPath)
+        let selectedCatalogItem = self.dataStore.catalogList[indexPath.row]
+        cell.configureCell(catalogItem: selectedCatalogItem)
         return cell
     }
 }
 
-extension CatalogListViewController: UITableViewDelegate {
+extension CatalogListViewController: UICollectionViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 260
-    }
 }
 
 private extension CatalogListViewController {
 
     func initializeUI() {
 
-        self.tableView.frame = .zero
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.register(PhotoCatalogCell.self)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.register(PhotoCatalogCell.self)
+        self.collectionView.collectionViewLayout = catalogPhotoListLayout
+    }
+
+    var catalogPhotoListLayout: UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .absolute(itemHeight))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: numberOfColumns)
+        let spacing = CGFloat(10)
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+
+        return UICollectionViewCompositionalLayout(section: section)
     }
 }
