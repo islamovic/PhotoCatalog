@@ -16,11 +16,13 @@ class PhotoCatalogCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        self.photoImageView.layer.cornerRadius = 10
     }
 
     func configCell(photoCatalog: CatalogItem) {
 
+        self.photoImageView.setImage(from: photoCatalog.image)
         self.itemTextLabel.text = photoCatalog.text
         self.confidenceLabel.text = "\(photoCatalog.confidence)"
         self.identifierLabel.text = photoCatalog.identifier

@@ -32,6 +32,8 @@
 		A6C4AD9327A8BAA700E14310 /* UITableView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */; };
 		A6C4AD9627A8BBC700E14310 /* CatalogListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9527A8BBC700E14310 /* CatalogListWorker.swift */; };
 		A6C4AD9827A8BD3E00E14310 /* CatalogListSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9727A8BD3E00E14310 /* CatalogListSceneViewModel.swift */; };
+		A6C4AD9A27A8C40000E14310 /* DownloadingImageWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9927A8C40000E14310 /* DownloadingImageWebService.swift */; };
+		A6C4AD9C27A8C83800E14310 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */; };
 		A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */; };
 		A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */; };
 		A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */; };
@@ -77,6 +79,8 @@
 		A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utils.swift"; sourceTree = "<group>"; };
 		A6C4AD9527A8BBC700E14310 /* CatalogListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListWorker.swift; sourceTree = "<group>"; };
 		A6C4AD9727A8BD3E00E14310 /* CatalogListSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneViewModel.swift; sourceTree = "<group>"; };
+		A6C4AD9927A8C40000E14310 /* DownloadingImageWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingImageWebService.swift; sourceTree = "<group>"; };
+		A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		A6D59A1727A753EE00884F9A /* PhotoCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCatalogListWebServiceTests.swift; sourceTree = "<group>"; };
 		A6D59A2327A754AE00884F9A /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				A6991FEB27A712E800FA99CC /* CatalogListWebService.swift */,
 				A6D59A2E27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift */,
+				A6C4AD9927A8C40000E14310 /* DownloadingImageWebService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				A6C4AD9227A8BAA700E14310 /* UITableView+Utils.swift */,
+				A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -405,11 +411,13 @@
 				A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */,
 				A6991FE427A6C30A00FA99CC /* Router.swift in Sources */,
 				A6C4AD9827A8BD3E00E14310 /* CatalogListSceneViewModel.swift in Sources */,
+				A6C4AD9A27A8C40000E14310 /* DownloadingImageWebService.swift in Sources */,
 				A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */,
 				A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */,
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
 				A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */,
 				A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */,
+				A6C4AD9C27A8C83800E14310 /* UIImageView+Utils.swift in Sources */,
 				A6C4AD9327A8BAA700E14310 /* UITableView+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

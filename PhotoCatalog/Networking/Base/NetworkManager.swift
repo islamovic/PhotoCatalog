@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 enum NetworkError: Equatable, Error {
 
     case decoding
     case failedRequest
+    case invalidData
 
     static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         return lhs.localizedDescription == rhs.localizedDescription
@@ -19,6 +21,8 @@ enum NetworkError: Equatable, Error {
 
 protocol NetworkClient {
     func request<T: Decodable>(request: URLRequest, completion: @escaping (Result<[T], NetworkError>) -> Void)
+
+    func downloadImage(url: URL, completion: @escaping(Result<UIImage?, NetworkError>) -> Void)
 }
 
 class NetworkManager: NetworkClient {
@@ -48,6 +52,26 @@ class NetworkManager: NetworkClient {
             completion(.success(response))
         }
 
+        dataTask.resume()
+    }
+
+    func downloadImage(url: URL, completion: @escaping (Result<UIImage?, NetworkError>) -> Void) {
+
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+
+            if error != nil {
+                completion(.failure(.failedRequest))
+                return
+            }
+
+            guard let safeData = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+
+            let image = UIImage(data: safeData)
+            completion(.success(image))
+        }
         dataTask.resume()
     }
 }
