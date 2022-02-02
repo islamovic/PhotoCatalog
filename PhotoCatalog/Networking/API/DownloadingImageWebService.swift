@@ -17,7 +17,8 @@ class DownloadingImageWebService {
     }
 
     func downloadImage(from url: String, completion: @escaping(Result<UIImage?, NetworkError>) -> Void) {
-        networkManager.downloadImage(url: URL(string: url)!) { result in
+        let escapedString = url.replacingOccurrences(of: " ", with: "%20")
+        networkManager.downloadImage(url: URL(string: escapedString)!) { result in
             completion(result)
         }
     }

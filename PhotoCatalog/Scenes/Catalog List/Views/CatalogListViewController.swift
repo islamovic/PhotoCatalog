@@ -26,6 +26,7 @@ class CatalogListViewController: UIViewController {
     
     var interactor: CatalogListSceneInteractor!
     var dataStore: CatalogListSceneDataStore!
+    var router: CatalogListSceneRouter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,10 @@ class CatalogListViewController: UIViewController {
 
     @objc func refresh(sender: UIRefreshControl) {
         self.interactor.fetchRecentCatalogList()
+    }
+
+    @objc func createPhotoCatalog(sender: UITabBarItem) {
+        router.routeToCreateNewImage()
     }
 }
 
@@ -88,6 +93,11 @@ extension CatalogListViewController: UICollectionViewDelegate {
 private extension CatalogListViewController {
 
     func initializeUI() {
+
+        self.title = "Catalog List"
+        let createPostBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self,
+                                                  action: #selector(createPhotoCatalog))
+        self.navigationItem.rightBarButtonItem = createPostBarButton
 
         self.collectionView.dataSource = self
         self.collectionView.delegate = self

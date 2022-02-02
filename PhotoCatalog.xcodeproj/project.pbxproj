@@ -10,6 +10,14 @@
 		A61BBD0A27A9887E00F50C3F /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD0927A9887E00F50C3F /* UICollectionView+Utils.swift */; };
 		A61BBD0D27A988C300F50C3F /* PhotoCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD0B27A988C300F50C3F /* PhotoCatalogCell.swift */; };
 		A61BBD0E27A988C300F50C3F /* PhotoCatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD0C27A988C300F50C3F /* PhotoCatalogCell.xib */; };
+		A61BBD1427A9F0FC00F50C3F /* CreateCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1227A9F0FC00F50C3F /* CreateCatalogViewController.swift */; };
+		A61BBD1527A9F0FC00F50C3F /* CreateCatalogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD1327A9F0FC00F50C3F /* CreateCatalogViewController.xib */; };
+		A61BBD1727A9F3A900F50C3F /* CatalogListSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1627A9F3A900F50C3F /* CatalogListSceneRouter.swift */; };
+		A61BBD1927A9F46400F50C3F /* CreateCatalogSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1827A9F46300F50C3F /* CreateCatalogSceneConfigurator.swift */; };
+		A61BBD1B27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1A27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift */; };
+		A61BBD1D27A9F78900F50C3F /* CreateCatalogScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1C27A9F78900F50C3F /* CreateCatalogScenePresenter.swift */; };
+		A61BBD1F27A9F88C00F50C3F /* CreateCatalogWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD1E27A9F88C00F50C3F /* CreateCatalogWorker.swift */; };
+		A61BBD2127A9FB0900F50C3F /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD2027A9FB0900F50C3F /* String+Utils.swift */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
 		A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FC127A6AFCA00FA99CC /* ViewController.swift */; };
@@ -31,7 +39,6 @@
 		A6C4AD8627A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */; };
 		A6C4AD8A27A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */; };
 		A6C4AD9627A8BBC700E14310 /* CatalogListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9527A8BBC700E14310 /* CatalogListWorker.swift */; };
-		A6C4AD9827A8BD3E00E14310 /* CatalogListSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9727A8BD3E00E14310 /* CatalogListSceneViewModel.swift */; };
 		A6C4AD9A27A8C40000E14310 /* DownloadingImageWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9927A8C40000E14310 /* DownloadingImageWebService.swift */; };
 		A6C4AD9C27A8C83800E14310 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */; };
 		A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */; };
@@ -55,6 +62,14 @@
 		A61BBD0927A9887E00F50C3F /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
 		A61BBD0B27A988C300F50C3F /* PhotoCatalogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCatalogCell.swift; sourceTree = "<group>"; };
 		A61BBD0C27A988C300F50C3F /* PhotoCatalogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCatalogCell.xib; sourceTree = "<group>"; };
+		A61BBD1227A9F0FC00F50C3F /* CreateCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogViewController.swift; sourceTree = "<group>"; };
+		A61BBD1327A9F0FC00F50C3F /* CreateCatalogViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateCatalogViewController.xib; sourceTree = "<group>"; };
+		A61BBD1627A9F3A900F50C3F /* CatalogListSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneRouter.swift; sourceTree = "<group>"; };
+		A61BBD1827A9F46300F50C3F /* CreateCatalogSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogSceneConfigurator.swift; sourceTree = "<group>"; };
+		A61BBD1A27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogSceneInteractor.swift; sourceTree = "<group>"; };
+		A61BBD1C27A9F78900F50C3F /* CreateCatalogScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogScenePresenter.swift; sourceTree = "<group>"; };
+		A61BBD1E27A9F88C00F50C3F /* CreateCatalogWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogWorker.swift; sourceTree = "<group>"; };
+		A61BBD2027A9FB0900F50C3F /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +93,6 @@
 		A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogResponseMock.json; sourceTree = "<group>"; };
 		A6C4AD8927A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CreatePhotoCatalogWrongResponseMock.json; sourceTree = "<group>"; };
 		A6C4AD9527A8BBC700E14310 /* CatalogListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListWorker.swift; sourceTree = "<group>"; };
-		A6C4AD9727A8BD3E00E14310 /* CatalogListSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneViewModel.swift; sourceTree = "<group>"; };
 		A6C4AD9927A8C40000E14310 /* DownloadingImageWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingImageWebService.swift; sourceTree = "<group>"; };
 		A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		A6D59A1727A753EE00884F9A /* PhotoCatalogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoCatalogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +121,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A61BBD0F27A9F0C400F50C3F /* Create Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				A61BBD1127A9F0E900F50C3F /* Workers */,
+				A61BBD1027A9F0E100F50C3F /* Views */,
+				A61BBD1827A9F46300F50C3F /* CreateCatalogSceneConfigurator.swift */,
+				A61BBD1A27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift */,
+				A61BBD1C27A9F78900F50C3F /* CreateCatalogScenePresenter.swift */,
+			);
+			path = "Create Catalog";
+			sourceTree = "<group>";
+		};
+		A61BBD1027A9F0E100F50C3F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A61BBD1227A9F0FC00F50C3F /* CreateCatalogViewController.swift */,
+				A61BBD1327A9F0FC00F50C3F /* CreateCatalogViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A61BBD1127A9F0E900F50C3F /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				A61BBD1E27A9F88C00F50C3F /* CreateCatalogWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		A6991FB127A6AFCA00FA99CC = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +189,7 @@
 		A6991FD127A6B1FC00FA99CC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A61BBD0F27A9F0C400F50C3F /* Create Catalog */,
 				A6991FD227A6B20800FA99CC /* Catalog List */,
 			);
 			path = Scenes;
@@ -159,7 +203,7 @@
 				A6991FD827A6B27600FA99CC /* CatalogListSceneConfigurator.swift */,
 				A6991FDD27A6B3A600FA99CC /* CatalogListSceneInteractor.swift */,
 				A6991FDF27A6B3B600FA99CC /* CatalogListScenePresenter.swift */,
-				A6C4AD9727A8BD3E00E14310 /* CatalogListSceneViewModel.swift */,
+				A61BBD1627A9F3A900F50C3F /* CatalogListSceneRouter.swift */,
 			);
 			path = "Catalog List";
 			sourceTree = "<group>";
@@ -242,6 +286,7 @@
 			children = (
 				A61BBD0927A9887E00F50C3F /* UICollectionView+Utils.swift */,
 				A6C4AD9B27A8C83800E14310 /* UIImageView+Utils.swift */,
+				A61BBD2027A9FB0900F50C3F /* String+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -375,6 +420,7 @@
 			files = (
 				A6991FD627A6B22B00FA99CC /* CatalogListViewController.xib in Resources */,
 				A6991FCA27A6AFCD00FA99CC /* LaunchScreen.storyboard in Resources */,
+				A61BBD1527A9F0FC00F50C3F /* CreateCatalogViewController.xib in Resources */,
 				A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */,
 				A6991FC527A6AFCA00FA99CC /* Main.storyboard in Resources */,
 				A61BBD0E27A988C300F50C3F /* PhotoCatalogCell.xib in Resources */,
@@ -399,22 +445,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61BBD1F27A9F88C00F50C3F /* CreateCatalogWorker.swift in Sources */,
 				A6991FD527A6B22B00FA99CC /* CatalogListViewController.swift in Sources */,
 				A6991FEC27A712E800FA99CC /* CatalogListWebService.swift in Sources */,
 				A6991FE827A70FB800FA99CC /* Constants.swift in Sources */,
+				A61BBD1927A9F46400F50C3F /* CreateCatalogSceneConfigurator.swift in Sources */,
 				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
 				A6C4AD9627A8BBC700E14310 /* CatalogListWorker.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
 				A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */,
 				A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */,
+				A61BBD1427A9F0FC00F50C3F /* CreateCatalogViewController.swift in Sources */,
+				A61BBD1B27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift in Sources */,
 				A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */,
 				A6991FE427A6C30A00FA99CC /* Router.swift in Sources */,
-				A6C4AD9827A8BD3E00E14310 /* CatalogListSceneViewModel.swift in Sources */,
+				A61BBD1727A9F3A900F50C3F /* CatalogListSceneRouter.swift in Sources */,
 				A6C4AD9A27A8C40000E14310 /* DownloadingImageWebService.swift in Sources */,
+				A61BBD2127A9FB0900F50C3F /* String+Utils.swift in Sources */,
 				A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */,
 				A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */,
 				A61BBD0D27A988C300F50C3F /* PhotoCatalogCell.swift in Sources */,
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
+				A61BBD1D27A9F78900F50C3F /* CreateCatalogScenePresenter.swift in Sources */,
 				A6991FEE27A7149500FA99CC /* CatalogItem.swift in Sources */,
 				A6991FE027A6B3B600FA99CC /* CatalogListScenePresenter.swift in Sources */,
 				A6C4AD9C27A8C83800E14310 /* UIImageView+Utils.swift in Sources */,
