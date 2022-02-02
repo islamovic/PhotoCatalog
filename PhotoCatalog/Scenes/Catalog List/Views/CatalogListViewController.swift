@@ -16,7 +16,7 @@ protocol CatalogListSceneDisplayView: AnyObject {
 
 class CatalogListViewController: UIViewController {
 
-    private let numberOfColumns: Int = 2
+    private var numberOfColumns: Int = 2
     private let itemHeight: CGFloat = 200
 
     private let refreshControl = UIRefreshControl()
@@ -36,6 +36,17 @@ class CatalogListViewController: UIViewController {
 
         self.refreshControl.beginRefreshing()
         self.interactor.fetchRecentCatalogList()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            self.numberOfColumns = 3
+        } else {
+            self.numberOfColumns = 2
+        }
+
+        self.collectionView.collectionViewLayout = catalogPhotoListLayout
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
 
     @objc func refresh(sender: UIRefreshControl) {
