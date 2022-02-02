@@ -22,6 +22,7 @@ class CreateCatalogWorker {
             "text": textDescription,
             "confidence": confidence
         ]
+        
         let request = router.buildRequest(parameters: params)
         networkManager.request(request: request) { result in
             completion(result)

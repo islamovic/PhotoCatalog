@@ -14,7 +14,6 @@ class CatalogListWorker {
                           completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
 
         let networkManager = NetworkManager()
-
         let router = CatalogListRouter()
 
         var params: [String: Any] = [:]
@@ -26,7 +25,6 @@ class CatalogListWorker {
         }
 
         let request = router.buildRequest(parameters: params)
-
         networkManager.request(request: request) { result in
             completion(result)
         }

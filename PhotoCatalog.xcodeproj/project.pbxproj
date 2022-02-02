@@ -23,8 +23,6 @@
 		A61BBD2A27AA035500F50C3F /* CatalogPhotoDetailsSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD2927AA035500F50C3F /* CatalogPhotoDetailsSceneConfigurator.swift */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
-		A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FC127A6AFCA00FA99CC /* ViewController.swift */; };
-		A6991FC527A6AFCA00FA99CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC327A6AFCA00FA99CC /* Main.storyboard */; };
 		A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC627A6AFCD00FA99CC /* Assets.xcassets */; };
 		A6991FCA27A6AFCD00FA99CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC827A6AFCD00FA99CC /* LaunchScreen.storyboard */; };
 		A6991FD527A6B22B00FA99CC /* CatalogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FD327A6B22B00FA99CC /* CatalogListViewController.swift */; };
@@ -79,8 +77,6 @@
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A6991FC127A6AFCA00FA99CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A6991FC427A6AFCA00FA99CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6991FC627A6AFCD00FA99CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6991FC927A6AFCD00FA99CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6991FCB27A6AFCD00FA99CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,8 +197,6 @@
 				A6991FD127A6B1FC00FA99CC /* Scenes */,
 				A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */,
 				A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */,
-				A6991FC127A6AFCA00FA99CC /* ViewController.swift */,
-				A6991FC327A6AFCA00FA99CC /* Main.storyboard */,
 				A6991FC627A6AFCD00FA99CC /* Assets.xcassets */,
 				A6991FC827A6AFCD00FA99CC /* LaunchScreen.storyboard */,
 				A6991FCB27A6AFCD00FA99CC /* Info.plist */,
@@ -447,7 +441,6 @@
 				A6991FCA27A6AFCD00FA99CC /* LaunchScreen.storyboard in Resources */,
 				A61BBD1527A9F0FC00F50C3F /* CreateCatalogViewController.xib in Resources */,
 				A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */,
-				A6991FC527A6AFCA00FA99CC /* Main.storyboard in Resources */,
 				A61BBD0E27A988C300F50C3F /* PhotoCatalogCell.xib in Resources */,
 				A61BBD2827AA033B00F50C3F /* CatalogPhotoDetailsViewController.xib in Resources */,
 			);
@@ -476,7 +469,6 @@
 				A6991FEC27A712E800FA99CC /* CatalogListWebService.swift in Sources */,
 				A6991FE827A70FB800FA99CC /* Constants.swift in Sources */,
 				A61BBD1927A9F46400F50C3F /* CreateCatalogSceneConfigurator.swift in Sources */,
-				A6991FC227A6AFCA00FA99CC /* ViewController.swift in Sources */,
 				A6C4AD9627A8BBC700E14310 /* CatalogListWorker.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
 				A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */,
@@ -523,14 +515,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A6991FC327A6AFCA00FA99CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6991FC427A6AFCA00FA99CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A6991FC827A6AFCD00FA99CC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -670,7 +654,7 @@
 				INFOPLIST_FILE = PhotoCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +682,7 @@
 				INFOPLIST_FILE = PhotoCatalog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
