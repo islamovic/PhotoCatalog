@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Token</key>
+	<string>38c9495a7045f0dccebe550baa3d0d07</string>
+	<key>BaseURL</key>
+	<string>https://marlove.net/e/mock/v1/items</string>
+</dict>
+</plist>
