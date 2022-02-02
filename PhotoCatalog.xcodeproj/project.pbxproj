@@ -22,6 +22,8 @@
 		A61BBD2827AA033B00F50C3F /* CatalogPhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD2627AA033B00F50C3F /* CatalogPhotoDetailsViewController.xib */; };
 		A61BBD2A27AA035500F50C3F /* CatalogPhotoDetailsSceneConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD2927AA035500F50C3F /* CatalogPhotoDetailsSceneConfigurator.swift */; };
 		A61BBD2E27AB255A00F50C3F /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD2D27AB255A00F50C3F /* Constants.plist */; };
+		A61BBD3227AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3127AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift */; };
+		A61BBD3427AB400D00F50C3F /* Siena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD3327AB400D00F50C3F /* Siena.jpg */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
 		A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC627A6AFCD00FA99CC /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		A61BBD2627AA033B00F50C3F /* CatalogPhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogPhotoDetailsViewController.xib; sourceTree = "<group>"; };
 		A61BBD2927AA035500F50C3F /* CatalogPhotoDetailsSceneConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogPhotoDetailsSceneConfigurator.swift; sourceTree = "<group>"; };
 		A61BBD2D27AB255A00F50C3F /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Constants.plist; sourceTree = "<group>"; };
+		A61BBD3127AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingImageWebServiceTests.swift; sourceTree = "<group>"; };
+		A61BBD3327AB400D00F50C3F /* Siena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Siena.jpg; sourceTree = "<group>"; };
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			children = (
 				A6D59A2027A7540000884F9A /* PhotosCatalogListWebServiceTests.swift */,
 				A6C4AD8327A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift */,
+				A61BBD3127AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 		A6D59A2627A7641E00884F9A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A61BBD3327AB400D00F50C3F /* Siena.jpg */,
 				A6D59A2727A7647B00884F9A /* CatalogListResponseMock.json */,
 				A6D59A2C27A89BD900884F9A /* CatalogListWorngResponseMock.json */,
 				A6C4AD8527A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json */,
@@ -464,6 +470,7 @@
 			files = (
 				A6C4AD8627A8A96B00E14310 /* CreatePhotoCatalogResponseMock.json in Resources */,
 				A6D59A2827A7647B00884F9A /* CatalogListResponseMock.json in Resources */,
+				A61BBD3427AB400D00F50C3F /* Siena.jpg in Resources */,
 				A6D59A2D27A89BD900884F9A /* CatalogListWorngResponseMock.json in Resources */,
 				A6C4AD8A27A8B51200E14310 /* CreatePhotoCatalogWrongResponseMock.json in Resources */,
 			);
@@ -513,6 +520,7 @@
 				A6C4AD8427A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift in Sources */,
 				A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */,
 				A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */,
+				A61BBD3227AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
