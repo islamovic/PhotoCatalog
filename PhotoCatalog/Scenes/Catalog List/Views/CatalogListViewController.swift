@@ -23,6 +23,7 @@ class CatalogListViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var errorMessage: UIView!
     
     var interactor: CatalogListSceneInteractor!
     var dataStore: CatalogListSceneDataStore!
@@ -64,12 +65,19 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.performBatchUpdates({
                 self?.collectionView.insertItems(at: indeces)
-            }, completion: nil)
+            }, completion: { [weak self] completed in
+                self?.errorMessage.isHidden = true
+            })
         }
     }
 
     func displayCatalogListFailure(_ error: NetworkError) {
-
+        if self.dataStore.catalogList.isEmpty {
+            DispatchQueue.main.async { [weak self] in
+                self?.errorMessage.isHidden = false
+                self?.refreshControl.endRefreshing()
+            }
+        }
     }
 
     func displayCatalogListAfterRefreshing() {
@@ -115,6 +123,7 @@ private extension CatalogListViewController {
                                                   action: #selector(createPhotoCatalog))
         self.navigationItem.rightBarButtonItem = createPostBarButton
 
+        self.errorMessage.isHidden = true
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(PhotoCatalogCell.self)
