@@ -88,6 +88,11 @@ extension CatalogListViewController: UICollectionViewDelegate {
                         forItemAt indexPath: IndexPath) {
         self.interactor.detectLoadingMore(index: indexPath.row)
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCatalogItem = self.dataStore.catalogList[indexPath.row]
+        self.router.routeToCatalogPhotoDetails(selectedCatalogItem)
+    }
 }
 
 private extension CatalogListViewController {

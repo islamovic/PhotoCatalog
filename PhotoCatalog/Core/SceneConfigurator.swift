@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 protocol SceneConfigurator {
-    func configure() -> UIViewController
+    associatedtype Parameter
+    func configure(parameter: Parameter?) -> UIViewController
 }

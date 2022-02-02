@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class CatalogListSceneConfigurator: SceneConfigurator {
+    typealias Parameter = CatalogItem
 
-    func configure() -> UIViewController {
-
+    func configure(parameter: CatalogItem? = nil) -> UIViewController {
         let viewController = CatalogListViewController()
         let presenter = CatalogListScenePresenter(displayView: viewController)
         let interactor = CatalogListSceneInteractor(presenter: presenter)

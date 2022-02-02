@@ -10,8 +10,9 @@ import UIKit
 
 class CreateCatalogSceneConfigurator: SceneConfigurator {
 
-    func configure() -> UIViewController {
+    typealias Parameter = CatalogItem
 
+    func configure(parameter: CatalogItem? = nil) -> UIViewController {
         let viewController = CreateCatalogViewController()
         let presenter = CreateCatalogScenePresenter(displayView: viewController)
         let interactor = CreateCatalogSceneInteractor(presenter: presenter)

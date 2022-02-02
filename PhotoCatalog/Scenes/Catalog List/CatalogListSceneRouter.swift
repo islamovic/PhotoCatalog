@@ -11,6 +11,8 @@ protocol CatalogListSceneRoutingLogic: AnyObject {
     typealias Controller = CatalogListSceneDisplayView & CatalogListViewController
 
     func routeToCreateNewImage()
+
+    func routeToCatalogPhotoDetails(_ catalogItem: CatalogItem)
 }
 
 class CatalogListSceneRouter: CatalogListSceneRoutingLogic {
@@ -30,5 +32,11 @@ extension CatalogListSceneRouter {
         let createCatalogItemViewConfigurator = CreateCatalogSceneConfigurator()
         let createCatalogItemViewController = createCatalogItemViewConfigurator.configure()
         viewController?.navigationController?.pushViewController(createCatalogItemViewController, animated: true)
+    }
+
+    func routeToCatalogPhotoDetails(_ catalogItem: CatalogItem) {
+        let catalogPhotoConfigurator = CatalogPhotoDetailsSceneConfigurator()
+        let catalogPhotoViewController = catalogPhotoConfigurator.configure(parameter: catalogItem)
+        viewController?.navigationController?.pushViewController(catalogPhotoViewController, animated: true)
     }
 }
