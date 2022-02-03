@@ -22,9 +22,6 @@ class CreateCatalogScenePresenter: CreateCatalogScenePresentaionLogic {
     required init(displayView: CreateCatalogSceneDisplayView) {
         self.displayView = displayView
     }
-}
-
-extension CreateCatalogScenePresenter {
 
     func presentCreateCatalogPhotoSuccess() {
         self.displayView?.displayViewCreateCatalogPhotoSuccess()
@@ -33,4 +30,5 @@ extension CreateCatalogScenePresenter {
     func presentCreateCatalogPhotoFailure() {
         self.displayView?.displayViewCreateCatalogPhotoFailure()
     }
+
 }

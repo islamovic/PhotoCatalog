@@ -28,9 +28,9 @@ protocol CatalogListSceneBusinessLogic: AnyObject {
 class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListSceneDataStore {
 
     // MARK: - Stored Properties
-    let presenter: CatalogListScenePresentaionLogic?
+    var presenter: CatalogListScenePresentaionLogic?
 
-    let worker: CatalogListWorker
+    var worker = CatalogListWorker()
 
     var catalogList: [CatalogItem] = []
 
@@ -41,7 +41,6 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
     // MARK: - Initializers
     required init(presenter: CatalogListScenePresentaionLogic) {
         self.presenter = presenter
-        self.worker = CatalogListWorker()
     }
 }
 
@@ -49,7 +48,7 @@ extension CatalogListSceneInteractor {
 
     func fetchCatalogList() {
 
-        worker.fetchCatalogList(maxId: self.maxId, sinceId: self.sinceId) { [weak self] result in
+        worker.fetchCatalogList() { [weak self] result in
 
             switch result {
 
@@ -61,14 +60,16 @@ extension CatalogListSceneInteractor {
                         let indeces = self?.updateOlderCatalogList(catalogList: catalogList) ?? []
                         self?.presenter?.presentCatalogListSuccess(indeces: indeces)
                         self?.catalogList.append(contentsOf: catalogList)
+                        return
                     } else {
                         let indeces = self?.updateRecentCatalogList(catalogList: catalogList) ?? []
                         self?.presenter?.presentCatalogListSuccess(indeces: indeces)
                         self?.catalogList.insert(contentsOf: catalogList, at: 0)
+                        return
                     }
+                } else {
+                    self?.presenter?.presentCatalogListAfterRefreshing()
                 }
-
-                self?.presenter?.presentCatalogListAfterRefreshing()
             case .failure(let error):
                 self?.presenter?.presentCatalogListFailure(error)
             }
@@ -79,6 +80,7 @@ extension CatalogListSceneInteractor {
         self.sinceId = nil
         if index == self.catalogList.count - 1 {
             self.maxId = self.catalogList.last?.identifier
+            self.worker.maxId = maxId
             self.fetchCatalogList()
         }
     }
@@ -86,6 +88,7 @@ extension CatalogListSceneInteractor {
     func fetchRecentCatalogList() {
         self.maxId = nil
         self.sinceId = self.catalogList.first?.identifier
+        self.worker.sinceId = sinceId
         self.fetchCatalogList()
     }
 }

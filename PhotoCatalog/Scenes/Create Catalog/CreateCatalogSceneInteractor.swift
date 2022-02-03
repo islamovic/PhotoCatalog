@@ -34,12 +34,11 @@ class CreateCatalogSceneInteractor: CreateCatalogSceneBusinessLogic, CreateCatal
 
     var confidence: Float = 0
 
-    let worker: CreateCatalogWorker
+    var worker = CreateCatalogWorker()
 
     // MARK: - Initializers
     required init(presenter: CreateCatalogScenePresentaionLogic) {
         self.presenter = presenter
-        worker = CreateCatalogWorker()
     }
 }
 

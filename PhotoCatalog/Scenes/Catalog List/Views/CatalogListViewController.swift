@@ -67,6 +67,7 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
                 self?.collectionView.insertItems(at: indeces)
             }, completion: { [weak self] completed in
                 self?.errorMessage.isHidden = true
+                self?.refreshControl.endRefreshing()
             })
         }
     }

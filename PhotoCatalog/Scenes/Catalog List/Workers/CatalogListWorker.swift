@@ -9,9 +9,15 @@ import Foundation
 
 class CatalogListWorker {
 
-    func fetchCatalogList(maxId: String? = nil,
-                          sinceId: String? = nil,
-                          completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
+    var maxId: String? = nil
+    var sinceId: String? = nil
+
+    init(maxId: String? = nil, sinceId: String? = nil) {
+        self.maxId = maxId
+        self.sinceId = sinceId
+    }
+
+    func fetchCatalogList(completion: @escaping(Result<[CatalogItem], NetworkError>) -> Void) {
 
         let networkManager = NetworkManager()
         let router = CatalogListRouter()

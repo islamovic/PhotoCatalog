@@ -24,6 +24,8 @@
 		A61BBD2E27AB255A00F50C3F /* Constants.plist in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD2D27AB255A00F50C3F /* Constants.plist */; };
 		A61BBD3227AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3127AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift */; };
 		A61BBD3427AB400D00F50C3F /* Siena.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A61BBD3327AB400D00F50C3F /* Siena.jpg */; };
+		A61BBD3A27AB4A7F00F50C3F /* CatalogListSceneInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3927AB4A7F00F50C3F /* CatalogListSceneInteractorTest.swift */; };
+		A61BBD3C27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3B27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
 		A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC627A6AFCD00FA99CC /* Assets.xcassets */; };
@@ -80,6 +82,8 @@
 		A61BBD2D27AB255A00F50C3F /* Constants.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Constants.plist; sourceTree = "<group>"; };
 		A61BBD3127AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadingImageWebServiceTests.swift; sourceTree = "<group>"; };
 		A61BBD3327AB400D00F50C3F /* Siena.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Siena.jpg; sourceTree = "<group>"; };
+		A61BBD3927AB4A7F00F50C3F /* CatalogListSceneInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneInteractorTest.swift; sourceTree = "<group>"; };
+		A61BBD3B27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogSceneInteractorTests.swift; sourceTree = "<group>"; };
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +186,15 @@
 				A61BBD2D27AB255A00F50C3F /* Constants.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A61BBD3827AB4A5C00F50C3F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A61BBD3927AB4A7F00F50C3F /* CatalogListSceneInteractorTest.swift */,
+				A61BBD3B27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		A6991FB127A6AFCA00FA99CC = {
@@ -336,6 +349,7 @@
 		A6D59A1827A753EE00884F9A /* PhotoCatalogTests */ = {
 			isa = PBXGroup;
 			children = (
+				A61BBD3827AB4A5C00F50C3F /* Interactor */,
 				A6D59A2627A7641E00884F9A /* Resources */,
 				A6D59A2527A755CD00884F9A /* Network */,
 				A6D59A2227A7549D00884F9A /* Mocks */,
@@ -517,8 +531,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A61BBD3A27AB4A7F00F50C3F /* CatalogListSceneInteractorTest.swift in Sources */,
 				A6C4AD8427A8A7A200E14310 /* CreatePhotoCatalogWebServiceTests.swift in Sources */,
 				A6D59A2127A7540000884F9A /* PhotosCatalogListWebServiceTests.swift in Sources */,
+				A61BBD3C27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift in Sources */,
 				A6D59A2427A754AE00884F9A /* MockURLProtocol.swift in Sources */,
 				A61BBD3227AB3DF100F50C3F /* DownloadingImageWebServiceTests.swift in Sources */,
 			);

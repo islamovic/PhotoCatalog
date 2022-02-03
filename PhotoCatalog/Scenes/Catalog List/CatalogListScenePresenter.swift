@@ -23,9 +23,6 @@ class CatalogListScenePresenter: CatalogListScenePresentaionLogic {
     required init(displayView: CatalogListSceneDisplayView) {
         self.displayView = displayView
     }
-}
-
-extension CatalogListScenePresenter {
 
     func presentCatalogListSuccess(indeces: [IndexPath]) {
         self.displayView?.displayCatalogListSucess(indeces: indeces)
