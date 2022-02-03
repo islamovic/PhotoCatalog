@@ -40,9 +40,6 @@ class CreateCatalogSceneInteractor: CreateCatalogSceneBusinessLogic, CreateCatal
     required init(presenter: CreateCatalogScenePresentaionLogic) {
         self.presenter = presenter
     }
-}
-
-extension CreateCatalogSceneInteractor {
 
     func validateUserInput(_ imageText: String?, textDescription: String?, confidence: Float) {
 

@@ -37,6 +37,7 @@ class CatalogListViewController: UIViewController {
 
         self.refreshControl.beginRefreshing()
         self.interactor.fetchRecentCatalogList()
+        self.interactor.fetchCatalogList()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -52,6 +53,7 @@ class CatalogListViewController: UIViewController {
 
     @objc func refresh(sender: UIRefreshControl) {
         self.interactor.fetchRecentCatalogList()
+        self.interactor.fetchCatalogList()
     }
 
     @objc func createPhotoCatalog(sender: UITabBarItem) {
@@ -106,7 +108,10 @@ extension CatalogListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
                         forItemAt indexPath: IndexPath) {
-        self.interactor.detectLoadingMore(index: indexPath.row)
+        let isLoadingMore = self.interactor.detectLoadingMore(index: indexPath.row)
+        if isLoadingMore {
+            self.interactor.fetchCatalogList()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

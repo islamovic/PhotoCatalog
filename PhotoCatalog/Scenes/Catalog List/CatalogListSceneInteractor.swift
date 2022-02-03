@@ -20,7 +20,7 @@ protocol CatalogListSceneBusinessLogic: AnyObject {
 
     func fetchCatalogList()
 
-    func detectLoadingMore(index: Int)
+    func detectLoadingMore(index: Int) -> Bool
 
     func fetchRecentCatalogList()
 }
@@ -42,9 +42,6 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
     required init(presenter: CatalogListScenePresentaionLogic) {
         self.presenter = presenter
     }
-}
-
-extension CatalogListSceneInteractor {
 
     func fetchCatalogList() {
 
@@ -76,21 +73,22 @@ extension CatalogListSceneInteractor {
         }
     }
 
-    func detectLoadingMore(index: Int) {
+    func detectLoadingMore(index: Int) -> Bool {
         self.sinceId = nil
         if index == self.catalogList.count - 1 {
             self.maxId = self.catalogList.last?.identifier
             self.worker.maxId = maxId
-            self.fetchCatalogList()
+            return true
         }
+        return false
     }
 
     func fetchRecentCatalogList() {
         self.maxId = nil
         self.sinceId = self.catalogList.first?.identifier
         self.worker.sinceId = sinceId
-        self.fetchCatalogList()
     }
+
 }
 
 private extension CatalogListSceneInteractor {
