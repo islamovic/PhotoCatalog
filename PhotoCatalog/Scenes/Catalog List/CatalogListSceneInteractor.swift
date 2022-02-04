@@ -56,18 +56,12 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
             switch result {
 
             case .success(let catalogList):
-
                 if catalogList.count != 0 {
-
                     if self?.maxId != nil {
-                        let indeces = self?.updateOlderCatalogList(catalogList: catalogList) ?? []
-                        self?.presenter?.presentCatalogListSuccess(indeces: indeces)
-                        self?.catalogList.append(contentsOf: catalogList)
+                        self?.updateOldCatalogList(catalogList)
                         return
                     } else {
-                        let indeces = self?.updateRecentCatalogList(catalogList: catalogList) ?? []
-                        self?.presenter?.presentCatalogListSuccess(indeces: indeces)
-                        self?.catalogList.insert(contentsOf: catalogList, at: 0)
+                        self?.updateRecentsCatalogList(catalogList)
                         return
                     }
                 } else {
@@ -84,9 +78,7 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
 
             switch result {
             case .success(let catalogList):
-                let indeces = self?.updateRecentCatalogList(catalogList: catalogList) ?? []
-                self?.presenter?.presentCachedCatalogListSuccess(indeces: indeces)
-                self?.catalogList.insert(contentsOf: catalogList, at: 0)
+                self?.updateRecentsCatalogList(catalogList)
                 break
 
             case .failure:
@@ -157,5 +149,17 @@ private extension CatalogListSceneInteractor {
             indeces.append(IndexPath(row: index, section: 0))
         }
         return indeces
+    }
+
+    func updateRecentsCatalogList(_ catalogList: [CatalogItem]) {
+        let indeces = self.updateRecentCatalogList(catalogList: catalogList)
+        self.presenter?.presentCatalogListSuccess(indeces: indeces)
+        self.catalogList.insert(contentsOf: catalogList, at: 0)
+    }
+
+    func updateOldCatalogList(_ catalogList: [CatalogItem]) {
+        let indeces = self.updateOlderCatalogList(catalogList: catalogList)
+        self.presenter?.presentCatalogListSuccess(indeces: indeces)
+        self.catalogList.append(contentsOf: catalogList)
     }
 }

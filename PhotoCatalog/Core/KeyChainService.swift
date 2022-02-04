@@ -37,7 +37,7 @@ public class KeychainService {
         let dataFromString: Data? = data.data(using: .utf8, allowLossyConversion: false)!
 
         // Instantiate a new default keychain query
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, dataFromString], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecValueDataValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, dataFromString as Any], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecValueDataValue])
 
         // Delete any existing items
         SecItemDelete(keychainQuery as CFDictionary)
@@ -48,7 +48,7 @@ public class KeychainService {
 
     private func load(service: String) -> String? {
 
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, kCFBooleanTrue, kSecMatchLimitOneValue], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecReturnDataValue, kSecMatchLimitValue])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, service, kCFBooleanTrue as Any, kSecMatchLimitOneValue], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecReturnDataValue, kSecMatchLimitValue])
 
         var dataTypeRef :AnyObject?
 

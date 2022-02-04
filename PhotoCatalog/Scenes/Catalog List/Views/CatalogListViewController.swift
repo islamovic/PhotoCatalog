@@ -32,6 +32,9 @@ class CatalogListViewController: UIViewController {
     var dataStore: CatalogListSceneDataStore!
     var router: CatalogListSceneRouter!
 
+    private let portraitNumberOfColumns = 2
+    private let landscapeNumberOfColumns = 3
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,11 +45,12 @@ class CatalogListViewController: UIViewController {
         self.interactor.fetchCachedCatalogList()
     }
 
+    // switch between 2 or 3 cells in case of portraint and landscape view.
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
-            self.numberOfColumns = 3
+            self.numberOfColumns = portraitNumberOfColumns
         } else {
-            self.numberOfColumns = 2
+            self.numberOfColumns = landscapeNumberOfColumns
         }
 
         self.collectionView.collectionViewLayout = catalogPhotoListLayout
@@ -62,6 +66,8 @@ class CatalogListViewController: UIViewController {
         router.routeToCreateNewImage()
     }
 }
+
+// MARK: - Display View for updating the UI.
 
 extension CatalogListViewController: CatalogListSceneDisplayView {
 
@@ -110,6 +116,7 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
     }
 }
 
+// MARK: - Table View data source
 extension CatalogListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,6 +131,7 @@ extension CatalogListViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Table View Delegate
 extension CatalogListViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell,
@@ -140,6 +148,7 @@ extension CatalogListViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - Private helper methods.
 private extension CatalogListViewController {
 
     func initializeUI() {

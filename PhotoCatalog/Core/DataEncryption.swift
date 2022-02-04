@@ -15,6 +15,7 @@ class DataEncryption {
         return privateKey
     }
 
+    // User export Private key to convert private key object to string to store it in keychain.
     func exportPrivateKey(_ privateKey: P256.KeyAgreement.PrivateKey) -> String? {
         let rawPrivateKey = privateKey.rawRepresentation
         let privateKeyBase64 = rawPrivateKey.base64EncodedString()
@@ -24,12 +25,14 @@ class DataEncryption {
         return percentEncodedPrivateKey
     }
 
+    // Imported Private key used to get the private key object from string
     func importPrivateKey(_ privateKey: String) throws -> P256.KeyAgreement.PrivateKey? {
         guard let privateKeyBase64 = privateKey.removingPercentEncoding else { return nil }
         guard let rawPrivateKey = Data(base64Encoded: privateKeyBase64) else { return nil }
         return try? P256.KeyAgreement.PrivateKey(rawRepresentation: rawPrivateKey)
     }
 
+    // Use Diffie-Hellman Key Exchange to generate the symmetric key.
     func driveSymmetricKey(privateKey: P256.KeyAgreement.PrivateKey, publicKey: P256.KeyAgreement.PublicKey) throws -> SymmetricKey? {
 
         let sharedSecret = try? privateKey.sharedSecretFromKeyAgreement(with: publicKey)
@@ -43,12 +46,15 @@ class DataEncryption {
         return symmetricKey
     }
 
+
+    // encrtpt using the symmetric key and the text we eant to encrypt
     func encrypt(text: String, symmetricKey: SymmetricKey) throws -> String? {
         let textData = text.data(using: .utf8)!
         let encrypted = try? AES.GCM.seal(textData, using: symmetricKey)
         return encrypted?.combined?.base64EncodedString()
     }
 
+    // decrypt the text we want using our symmetric key
     func decrypt(text: String, symmetricKey: SymmetricKey) -> String {
 
         guard let data = Data(base64Encoded: text) else {

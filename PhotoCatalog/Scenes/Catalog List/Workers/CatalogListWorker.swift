@@ -27,6 +27,7 @@ class CatalogListWorker {
 
     func fetchCachedList(completion: @escaping (Result<[CatalogItem], CacheError>) -> Void) {
 
+        // get cached encryoted code from key chain.
         let catalogListCacheService = CatalogListCacheService()
 
         guard let cachedList = catalogListCacheService.load() else {
@@ -34,6 +35,7 @@ class CatalogListWorker {
             return
         }
 
+        // get the private key from key chain.
         let privateKeyCacheService = PrivateKeyCache()
         let dataEncryptionService = DataEncryption()
 
@@ -49,6 +51,7 @@ class CatalogListWorker {
             return
         }
 
+        // get the public key and create symmetric key
         let publicKey = importedPrivateKey.publicKey
         let symmetricKey = try? dataEncryptionService.driveSymmetricKey(privateKey: importedPrivateKey, publicKey: publicKey)
 
@@ -56,8 +59,11 @@ class CatalogListWorker {
             completion(.failure(.symmetricKey))
             return
         }
+
+        // decrypt the cached data we already retrived form keychain using symmetric key
         let decoedString = dataEncryptionService.decrypt(text: cachedList, symmetricKey: symmetricKey)
 
+        // convert it to CatalogItem list to presented to the view.
         let decodedData = Data(decoedString.utf8)
         let catalogList = try? JSONDecoder().decode([CatalogItem].self, from: decodedData)
         guard let catalogList = catalogList else {
