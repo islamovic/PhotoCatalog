@@ -19,7 +19,16 @@ protocol CatalogListSceneDisplayView: AnyObject {
 
 class CatalogListViewController: UIViewController {
 
-    private var numberOfColumns: Int = 2
+    private var numberOfColumns: Int {
+        get {
+            if UIDevice.current.orientation.isLandscape {
+                return landscapeNumberOfColumns
+            } else {
+                return portraitNumberOfColumns
+            }
+        }
+        set { }
+    }
     private let itemHeight: CGFloat = 200
 
     private let refreshControl = UIRefreshControl()
@@ -49,9 +58,9 @@ class CatalogListViewController: UIViewController {
     // switch between 2 or 3 cells in case of portraint and landscape view.
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if UIDevice.current.orientation.isLandscape {
-            self.numberOfColumns = portraitNumberOfColumns
-        } else {
             self.numberOfColumns = landscapeNumberOfColumns
+        } else {
+            self.numberOfColumns = portraitNumberOfColumns
         }
 
         self.collectionView.collectionViewLayout = catalogPhotoListLayout
