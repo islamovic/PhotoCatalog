@@ -42,6 +42,7 @@ class CatalogListViewController: UIViewController {
         self.initializeRefreshControl()
 
         self.refreshControl.beginRefreshing()
+        // get cached and decrypt data.
         self.interactor.fetchCachedCatalogList()
     }
 
@@ -98,19 +99,25 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
         }
     }
 
-
     func displayViewCatalogCachedListSuccess(indeces: [IndexPath]) {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.performBatchUpdates({
-                self?.collectionView.insertItems(at: indeces)
-            }, completion: { [weak self] completed in
-                self?.errorMessage.isHidden = true
-                self?.refreshControl.endRefreshing()
-            })
+        // in case we found no cached data we fetch a new request from the server.
+        if indeces.isEmpty {
+            self.interactor.fetchRecentCatalogList()
+            self.interactor.fetchCatalogList()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.performBatchUpdates({
+                    self?.collectionView.insertItems(at: indeces)
+                }, completion: { [weak self] completed in
+                    self?.errorMessage.isHidden = true
+                    self?.refreshControl.endRefreshing()
+                })
+            }
         }
     }
 
     func displayViewCatalogCachedListFailure() {
+        // in case of error happened while decrypting the cached data.
         self.interactor.fetchRecentCatalogList()
         self.interactor.fetchCatalogList()
     }
