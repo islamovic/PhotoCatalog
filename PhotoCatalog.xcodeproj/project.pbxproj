@@ -28,6 +28,7 @@
 		A61BBD3C27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3B27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift */; };
 		A61BBD3F27AB6EA400F50C3F /* CreateCatalogSceneViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD3E27AB6EA400F50C3F /* CreateCatalogSceneViewControllerTests.swift */; };
 		A61BBD4127AB734C00F50C3F /* CatalogListSceneViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD4027AB734C00F50C3F /* CatalogListSceneViewControllerTests.swift */; };
+		A61BBD4427AC387300F50C3F /* DataEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD4327AC387300F50C3F /* DataEncryption.swift */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
 		A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC627A6AFCD00FA99CC /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		A61BBD3B27AB5E3800F50C3F /* CreateCatalogSceneInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogSceneInteractorTests.swift; sourceTree = "<group>"; };
 		A61BBD3E27AB6EA400F50C3F /* CreateCatalogSceneViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCatalogSceneViewControllerTests.swift; sourceTree = "<group>"; };
 		A61BBD4027AB734C00F50C3F /* CatalogListSceneViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListSceneViewControllerTests.swift; sourceTree = "<group>"; };
+		A61BBD4327AC387300F50C3F /* DataEncryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEncryption.swift; sourceTree = "<group>"; };
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				A6991FDB27A6B2B500FA99CC /* SceneConfigurator.swift */,
+				A61BBD4327AC387300F50C3F /* DataEncryption.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				A6C4AD9627A8BBC700E14310 /* CatalogListWorker.swift in Sources */,
 				A6991FE627A6C3BB00FA99CC /* NetworkManager.swift in Sources */,
 				A6D59A2F27A89EFC00884F9A /* CreatePhotoCatalogWebService.swift in Sources */,
+				A61BBD4427AC387300F50C3F /* DataEncryption.swift in Sources */,
 				A6991FD927A6B27600FA99CC /* CatalogListSceneConfigurator.swift in Sources */,
 				A61BBD1427A9F0FC00F50C3F /* CreateCatalogViewController.swift in Sources */,
 				A61BBD1B27A9F77C00F50C3F /* CreateCatalogSceneInteractor.swift in Sources */,
