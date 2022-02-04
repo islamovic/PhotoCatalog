@@ -31,6 +31,7 @@
 		A61BBD4427AC387300F50C3F /* DataEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD4327AC387300F50C3F /* DataEncryption.swift */; };
 		A61BBD7427AD79C400F50C3F /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD7327AD79C300F50C3F /* KeyChainService.swift */; };
 		A61BBD7627AD818300F50C3F /* PrivateKeyCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD7527AD818300F50C3F /* PrivateKeyCacheService.swift */; };
+		A61BBD7827AD89CF00F50C3F /* CatalogListCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61BBD7727AD89CF00F50C3F /* CatalogListCacheService.swift */; };
 		A6991FBE27A6AFCA00FA99CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */; };
 		A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */; };
 		A6991FC727A6AFCD00FA99CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6991FC627A6AFCD00FA99CC /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		A61BBD4327AC387300F50C3F /* DataEncryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEncryption.swift; sourceTree = "<group>"; };
 		A61BBD7327AD79C300F50C3F /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		A61BBD7527AD818300F50C3F /* PrivateKeyCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyCacheService.swift; sourceTree = "<group>"; };
+		A61BBD7727AD89CF00F50C3F /* CatalogListCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListCacheService.swift; sourceTree = "<group>"; };
 		A6991FBA27A6AFCA00FA99CC /* PhotoCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6991FBD27A6AFCA00FA99CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6991FBF27A6AFCA00FA99CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				A61BBD4327AC387300F50C3F /* DataEncryption.swift */,
 				A61BBD7327AD79C300F50C3F /* KeyChainService.swift */,
 				A61BBD7527AD818300F50C3F /* PrivateKeyCacheService.swift */,
+				A61BBD7727AD89CF00F50C3F /* CatalogListCacheService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				A6991FDE27A6B3A600FA99CC /* CatalogListSceneInteractor.swift in Sources */,
 				A6991FC027A6AFCA00FA99CC /* SceneDelegate.swift in Sources */,
 				A61BBD0D27A988C300F50C3F /* PhotoCatalogCell.swift in Sources */,
+				A61BBD7827AD89CF00F50C3F /* CatalogListCacheService.swift in Sources */,
 				A61BBD2727AA033B00F50C3F /* CatalogPhotoDetailsViewController.swift in Sources */,
 				A6991FDC27A6B2B500FA99CC /* SceneConfigurator.swift in Sources */,
 				A61BBD1D27A9F78900F50C3F /* CreateCatalogScenePresenter.swift in Sources */,

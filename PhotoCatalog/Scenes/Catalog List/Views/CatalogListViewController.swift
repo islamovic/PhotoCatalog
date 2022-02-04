@@ -12,6 +12,9 @@ protocol CatalogListSceneDisplayView: AnyObject {
     func displayCatalogListSucess(indeces: [IndexPath])
     func displayCatalogListFailure(_ error: NetworkError)
     func displayCatalogListAfterRefreshing()
+
+    func displayViewCatalogCachedListSuccess(indeces: [IndexPath])
+    func displayViewCatalogCachedListFailure()
 }
 
 class CatalogListViewController: UIViewController {
@@ -36,8 +39,7 @@ class CatalogListViewController: UIViewController {
         self.initializeRefreshControl()
 
         self.refreshControl.beginRefreshing()
-        self.interactor.fetchRecentCatalogList()
-        self.interactor.fetchCatalogList()
+        self.interactor.fetchCachedCatalogList()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -66,6 +68,7 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
     func displayCatalogListSucess(indeces: [IndexPath]) {
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.performBatchUpdates({
+                self?.interactor.cacheMostRecentCatalogList()
                 self?.collectionView.insertItems(at: indeces)
             }, completion: { [weak self] completed in
                 self?.errorMessage.isHidden = true
@@ -87,6 +90,23 @@ extension CatalogListViewController: CatalogListSceneDisplayView {
         DispatchQueue.main.async { [weak self] in
             self?.refreshControl.endRefreshing()
         }
+    }
+
+
+    func displayViewCatalogCachedListSuccess(indeces: [IndexPath]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.performBatchUpdates({
+                self?.collectionView.insertItems(at: indeces)
+            }, completion: { [weak self] completed in
+                self?.errorMessage.isHidden = true
+                self?.refreshControl.endRefreshing()
+            })
+        }
+    }
+
+    func displayViewCatalogCachedListFailure() {
+        self.interactor.fetchRecentCatalogList()
+        self.interactor.fetchCatalogList()
     }
 }
 

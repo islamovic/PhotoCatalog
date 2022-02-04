@@ -23,6 +23,10 @@ protocol CatalogListSceneBusinessLogic: AnyObject {
     func detectLoadingMore(index: Int) -> Bool
 
     func fetchRecentCatalogList()
+
+    func fetchCachedCatalogList()
+
+    func cacheMostRecentCatalogList()
 }
 
 class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListSceneDataStore {
@@ -46,7 +50,7 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
     }
 
     func fetchCatalogList() {
-        
+
         worker.fetchCatalogList() { [weak self] result in
 
             switch result {
@@ -73,6 +77,43 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
                 self?.presenter?.presentCatalogListFailure(error)
             }
         }
+    }
+
+    func fetchCachedCatalogList() {
+        worker.fetchCachedList { [weak self] result in
+
+            switch result {
+            case .success(let catalogList):
+                let indeces = self?.updateRecentCatalogList(catalogList: catalogList) ?? []
+                self?.presenter?.presentCachedCatalogListSuccess(indeces: indeces)
+                self?.catalogList.insert(contentsOf: catalogList, at: 0)
+                break
+
+            case .failure:
+                self?.presenter?.presentCachedCatalogListFailure()
+                break
+            }
+        }
+    }
+
+    func cacheMostRecentCatalogList() {
+
+        let catalogListCacheService = CatalogListCacheService()
+        let privateKeyCacheService = PrivateKeyCache()
+        let dataEncryptionService = DataEncryption()
+
+        let mostRecentCatalogList = Array(self.catalogList[0...9])
+        guard let encodedData = try? JSONEncoder().encode(mostRecentCatalogList) else { return }
+        guard let encodedString = String(data: encodedData, encoding: .utf8) else { return }
+
+        guard let exportedPrivateKey = privateKeyCacheService.load() else { return }
+        guard let importedPrivateKey = try? dataEncryptionService.importPrivateKey(exportedPrivateKey) else { return }
+
+        let publicKey = importedPrivateKey.publicKey
+        guard let symmetricKey = try? dataEncryptionService.driveSymmetricKey(privateKey: importedPrivateKey, publicKey: publicKey) else { return }
+        guard let encryptedData = try? dataEncryptionService.encrypt(text: encodedString, symmetricKey: symmetricKey) else { return }
+
+        catalogListCacheService.save(value: encryptedData)
     }
 
     func detectLoadingMore(index: Int) -> Bool {
