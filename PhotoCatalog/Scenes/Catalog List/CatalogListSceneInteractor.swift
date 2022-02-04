@@ -46,14 +46,6 @@ class CatalogListSceneInteractor: CatalogListSceneBusinessLogic, CatalogListScen
     }
 
     func fetchCatalogList() {
-
-        let privateKey = dataEncryption.generatePrivateKey()
-        let publicKey = privateKey.publicKey
-        let symmetricKey = try? dataEncryption.driveSymmetricKey(privateKey: privateKey, publicKey: publicKey)
-
-        let encryptedString = try? dataEncryption.encrypt(text: "Hello It's me", symmetricKey: symmetricKey!)
-        let decoedString = dataEncryption.decrypt(text: encryptedString!, symmetricKey: symmetricKey!)
-        print(decoedString)
         
         worker.fetchCatalogList() { [weak self] result in
 
